@@ -1,6 +1,6 @@
 Name:           deepin-editor
 Version:        5.6.1
-Release:        3
+Release:        4
 Summary:        Simple editor for Linux Deepin
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-editor
@@ -10,7 +10,8 @@ BuildRequires:  gcc-c++
 BuildRequires:  freeimage-devel
 BuildRequires:  cmake(KF5Codecs)
 BuildRequires:  cmake(KF5SyntaxHighlighting)
-BuildRequires:  pkgconfig(dtkwidget) >= 5.1
+BuildRequires:  dtkcore-devel
+BuildRequires:  dtkwidget-devel
 BuildRequires:  pkgconfig(libexif)
 BuildRequires:  pkgconfig(xcb-aux)
 BuildRequires:  pkgconfig(xtst)
@@ -53,5 +54,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Fri Aug 28 2020 chenbo pan <panchenbo@uniontech.com> - 5.6.1-4
+- fix compile fail
+
 * Thu Jul 30 2020 openEuler Buildteam <buildteam@openeuler.org> - 5.6.1-3
 - Package init
