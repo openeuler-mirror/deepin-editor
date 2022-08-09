@@ -1,0 +1,43 @@
+From 969abdfd29d2b87aa13f19838b7603b05960594e Mon Sep 17 00:00:00 2001
+From: loong ci <loong_c@yeah.net>
+Date: Tue, 9 Aug 2022 14:39:13 +0800
+Subject: [PATCH] fix broken KF5 include path
+
+---
+ src/dtextedit.cpp | 6 +++---
+ src/dtextedit.h   | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/dtextedit.cpp b/src/dtextedit.cpp
+index 1236b05..71a4e06 100644
+--- a/src/dtextedit.cpp
++++ b/src/dtextedit.cpp
+@@ -30,9 +30,9 @@
+ #include "showflodcodewidget.h"
+ 
+ 
+-#include <KF5/KSyntaxHighlighting/definition.h>
+-#include <KF5/KSyntaxHighlighting/syntaxhighlighter.h>
+-#include <KF5/KSyntaxHighlighting/theme.h>
++#include <KSyntaxHighlighting/definition.h>
++#include <KSyntaxHighlighting/syntaxhighlighter.h>
++#include <KSyntaxHighlighting/theme.h>
+ 
+ #include <QAbstractTextDocumentLayout>
+ #include <QTextDocumentFragment>
+diff --git a/src/dtextedit.h b/src/dtextedit.h
+index 1bed580..2580979 100644
+--- a/src/dtextedit.h
++++ b/src/dtextedit.h
+@@ -23,7 +23,7 @@
+ #ifndef TEXTEDIT_H
+ #define TEXTEDIT_H
+ 
+-#include <KF5/KSyntaxHighlighting/repository.h>
++#include <KSyntaxHighlighting/repository.h>
+ #include "uncommentselection.h"
+ #include "linenumberarea.h"
+ #include "bookmarkwidget.h"
+-- 
+2.20.1
+
