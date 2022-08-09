@@ -1,10 +1,11 @@
 Name:           deepin-editor
 Version:        5.6.28
-Release:        1
+Release:        2
 Summary:        Simple editor for Linux Deepin
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-editor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+Patch0:         0001-fix-broken-KF5-include-path.patch
 
 BuildRequires: cmake3
 BuildRequires: gcc-c++
@@ -30,7 +31,7 @@ BuildRequires: cmake(KF5SyntaxHighlighting)
 %{summary}.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 # help find (and prefer) qt5 utilities, e.g. qmake, lrelease
@@ -55,6 +56,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
 %changelog
+* Tue Aug 09 2022 liweiganga <liweiganga@uniontech.com> - 5.6.28-2
+- fix: broken KF5 include path
+
 * Mon Jul 12 2021 weidong <weidong@uniontech.com> - 5.6.28-1
 - Update 5.6.28
 
