@@ -1,5 +1,5 @@
 %global debug_package   %{nil}
-%define pkgrelease  2
+%define pkgrelease  3
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -15,6 +15,7 @@ License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-editor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:         0001-fix-broken-KF5-include-path.patch
+Patch1000:      add-riscv-support.patch
 
 BuildRequires: cmake3
 BuildRequires: qt5-devel
@@ -47,6 +48,9 @@ BuildRequires: gmock-devel
 %prep
 %setup -q
 %patch0 -p1
+%ifarch riscv64
+%patch1000 -p1
+%endif
 
 # help find (and prefer) qt5 utilities, e.g. qmake, lrelease
 export PATH=%{_qt5_bindir}:$PATH
@@ -74,6 +78,9 @@ popd
 %{_datadir}/deepin-manual/manual-assets/application/deepin-editor/editor/*
 
 %changelog
+* Mon Aug 29 2022 misaka00251 <misaka00251@misakanet.cn> - 5.9.7-3
+- Add RISC-V support
+
 * Wed Jul 27 2022 liweiganga <liweiganga@uniontech.com> - 5.9.7-2
 - fix: broken KF5 include path
 
