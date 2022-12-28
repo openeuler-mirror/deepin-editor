@@ -1,5 +1,5 @@
-%global debug_package   %{nil}
-%define pkgrelease  2
+##%global debug_package   %{nil}
+%define pkgrelease  3
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -74,6 +74,9 @@ popd
 %{_datadir}/deepin-manual/manual-assets/application/deepin-editor/editor/*
 
 %changelog
+* Wed Dec 21 2022 liweiganga <liweiganga@uniontech.com> - 5.9.7-3
+- enable debuginfo for fix strip
+
 * Wed Jul 27 2022 liweiganga <liweiganga@uniontech.com> - 5.9.7-2
 - fix: broken KF5 include path
 
