@@ -1,5 +1,5 @@
-##%global debug_package   %{nil}
-%define pkgrelease  3
+%global debug_package   %{nil}
+%define pkgrelease  4
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -48,6 +48,10 @@ BuildRequires: gmock-devel
 %setup -q
 %patch0 -p1
 
+# fix strip
+sed -i 's|-Wall"|-Wall -s"|' CMakeLists.txt
+
+%build
 # help find (and prefer) qt5 utilities, e.g. qmake, lrelease
 export PATH=%{_qt5_bindir}:$PATH
 # cmake_minimum_required version is too high
@@ -74,6 +78,9 @@ popd
 %{_datadir}/deepin-manual/manual-assets/application/deepin-editor/editor/*
 
 %changelog
+* Thu Mar 16 2023 liweiganga <liweiganga@uniontech.com> - 5.9.7-4
+- feat: fix strip
+
 * Wed Dec 21 2022 liweiganga <liweiganga@uniontech.com> - 5.9.7-3
 - enable debuginfo for fix strip
 
