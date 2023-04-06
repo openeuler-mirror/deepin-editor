@@ -1,0 +1,49 @@
+From 9b2501cd5d5ebc02ca54c9d49dde4a9be91799de Mon Sep 17 00:00:00 2001
+From: leeffo <leeffo@yeah.net>
+Date: Fri, 31 Mar 2023 11:14:21 +0800
+Subject: [PATCH] feat: broken KF5 include path
+
+---
+ src/editor/dtextedit.cpp        | 6 +++---
+ src/editor/showflodcodewidget.h | 8 ++++----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/editor/dtextedit.cpp b/src/editor/dtextedit.cpp
+index 0c50ea5..79a0bb7 100644
+--- a/src/editor/dtextedit.cpp
++++ b/src/editor/dtextedit.cpp
+@@ -33,9 +33,9 @@
+ #include "insertblockbytextcommond.h"
+ #include "indenttextcommond.h"
+ 
+-#include <KF5/KSyntaxHighlighting/definition.h>
+-#include <KF5/KSyntaxHighlighting/syntaxhighlighter.h>
+-#include <KF5/KSyntaxHighlighting/theme.h>
++#include <KSyntaxHighlighting/definition.h>
++#include <KSyntaxHighlighting/syntaxhighlighter.h>
++#include <KSyntaxHighlighting/theme.h>
+ 
+ #include <QAbstractTextDocumentLayout>
+ #include <QTextDocumentFragment>
+diff --git a/src/editor/showflodcodewidget.h b/src/editor/showflodcodewidget.h
+index def67ad..5d2e5b7 100644
+--- a/src/editor/showflodcodewidget.h
++++ b/src/editor/showflodcodewidget.h
+@@ -23,10 +23,10 @@
+ #include <DFrame>
+ #include <DPlainTextEdit>
+ #include <DApplicationHelper>
+-#include <KF5/KSyntaxHighlighting/repository.h>
+-#include <KF5/KSyntaxHighlighting/definition.h>
+-#include <KF5/KSyntaxHighlighting/syntaxhighlighter.h>
+-#include <KF5/KSyntaxHighlighting/theme.h>
++#include <KSyntaxHighlighting/repository.h>
++#include <KSyntaxHighlighting/definition.h>
++#include <KSyntaxHighlighting/syntaxhighlighter.h>
++#include <KSyntaxHighlighting/theme.h>
+ 
+ DWIDGET_USE_NAMESPACE
+ 
+-- 
+2.20.1
+

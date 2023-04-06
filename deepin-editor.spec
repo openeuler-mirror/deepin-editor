@@ -1,5 +1,5 @@
 %global debug_package   %{nil}
-%define pkgrelease  4
+%define pkgrelease  1
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -8,13 +8,13 @@
 %endif
 
 Name:           deepin-editor
-Version:        5.9.7
+Version:        5.9.23
 Release:        %{specrelease}
 Summary:        Simple editor for Linux Deepin
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-editor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
-Patch0:         0001-fix-broken-KF5-include-path.patch
+Patch0:         0001-feat-broken-KF5-include-path.patch
 
 BuildRequires: cmake3
 BuildRequires: qt5-devel
@@ -38,7 +38,9 @@ BuildRequires: kf5-kcodecs-devel
 BuildRequires: kf5-syntax-highlighting-devel
 BuildRequires: gtest-devel
 BuildRequires: gmock-devel
-
+BuildRequires: dtkcommon-devel
+BuildRequires: uchardet-devel
+BuildRequires: enca-devel
 
 
 %description
@@ -78,6 +80,9 @@ popd
 %{_datadir}/deepin-manual/manual-assets/application/deepin-editor/editor/*
 
 %changelog
+* Fri Mar 31 2023 liweiganga <liweiganga@uniontech.com> - 5.9.23-1
+- update: update to 5.9.23
+
 * Thu Mar 16 2023 liweiganga <liweiganga@uniontech.com> - 5.9.7-4
 - feat: fix strip
 
