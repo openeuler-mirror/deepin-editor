@@ -1,5 +1,5 @@
 %global debug_package   %{nil}
-%define pkgrelease  4
+%define pkgrelease  5
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -15,6 +15,7 @@ License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-editor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:         0001-fix-broken-KF5-include-path.patch
+Patch1:         0002-update_config_guess.patch
 
 BuildRequires: cmake3
 BuildRequires: qt5-devel
@@ -47,6 +48,7 @@ BuildRequires: gmock-devel
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 # fix strip
 sed -i 's|-Wall"|-Wall -s"|' CMakeLists.txt
@@ -78,6 +80,9 @@ popd
 %{_datadir}/deepin-manual/manual-assets/application/deepin-editor/editor/*
 
 %changelog
+* Tue Jun 20 2023 yoo <sunyuechi@iscas.ac.cn> - 5.9.7-5
+- update config guess, support riscv
+
 * Thu Mar 16 2023 liweiganga <liweiganga@uniontech.com> - 5.9.7-4
 - feat: fix strip
 
